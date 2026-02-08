@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { TaskService } from '../../service/task-service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,21 @@ import { Component } from '@angular/core';
   styleUrl: './header.css',
 })
 export class Header {
-  toggleDarkMode() {
-    document.documentElement.classList.toggle('dark-theme');
+  db = inject(TaskService);
+
+  onSearch(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.db.searchTerm.set(input.value);
+  }
+
+  toggleDarkModeOn() {
+    document.documentElement.classList.add('dark-theme');
+    document.getElementById('darkMode')?.classList.add('active');
+    document.getElementById('lightMode')?.classList.remove('active');
+  }
+  toggleDarkModeOff() {
+    document.documentElement.classList.remove('dark-theme');
+    document.getElementById('lightMode')?.classList.add('active');
+    document.getElementById('darkMode')?.classList.remove('active');
   }
 }

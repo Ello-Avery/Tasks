@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 
 export type TaskStatus = 'Not started' | 'In progress' | 'Done';
 
@@ -16,7 +16,7 @@ export interface TaskCollection {
   providedIn: 'root',
 })
 export class TaskService {
-  tasks: TaskCollection = {
+  private _tasks = signal<TaskCollection>({
     '1': {
       id: '1',
       title: 'Complete Angular bootcamp module 5',
@@ -67,15 +67,31 @@ export class TaskService {
       title: 'Write unit tests for components',
       status: 'Not started',
     },
-  };
+  });
 
-  get getTasks(): Task[] {
-    return Object.values(this.tasks);
-  }
+  tasks = this._tasks.asReadonly();
+
+  tasksArray = computed(() => Object.values(this._tasks()));
+
+  searchTerm = signal<string>('');
+
+  filterTasks = computed(() => {
+    const tasks = this.tasksArray();
+    const search = this.searchTerm().toLowerCase().trim();
+
+    if (!search) return tasks;
+
+    return tasks.filter((tasks) => tasks.title.toLowerCase().includes(search));
+  });
 
   updateTaskStatus(taskId: string, newStatus: TaskStatus) {
-    if (!this.tasks[taskId]) return;
+    this._tasks.update((tasks) => {
+      if (!tasks[taskId]) return tasks;
 
-    this.tasks[taskId].status = newStatus;
+      return {
+        ...tasks,
+        [taskId]: { ...tasks[taskId], status: newStatus },
+      };
+    });
   }
 }

@@ -57,7 +57,28 @@
 .toggleTheme {
   background: var(--color-secondary);
   border-radius: 100vh;
-  padding: 5px;
+  display: flex;
+}
+
+.toggleTheme > * {
+  transition:
+    background-color 600ms ease,
+    transform 600ms ease;
+  border-radius: 100vh;
+  cursor: pointer;
+}
+
+.innerBtn {
+  padding: 4px;
+}
+
+.toggleTheme .active {
+  background: var(--text-bg-color);
+  transform: scale(1.05);
+}
+
+.toggleTheme .active i {
+  color: color-mix(in srgb, var(--color-secondary) 80%, black);
 }
 
 input {

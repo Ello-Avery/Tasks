@@ -7,15 +7,25 @@
   </div>
 
   <div class="searchbox">
-    <input class="search" type="text" class="search" placeholder="Search" />
+    <input
+      class="search"
+      type="text"
+      class="search"
+      placeholder="Search by title"
+      (input)="onSearch($event)"
+    />
 
     <div class="toggleTheme">
-      <button class="menu-icon" (click)="toggleDarkMode()">
-        <i class="bi bi-brightness-high"></i>
-      </button>
-      <button class="menu-icon" (click)="toggleDarkMode()">
-        <i class="bi bi-moon"></i>
-      </button>
+      <div class="innerBtn active" id="lightMode">
+        <button class="menu-icon" (click)="toggleDarkModeOff()">
+          <i class="bi bi-brightness-high-fill" id="sun"></i>
+        </button>
+      </div>
+      <div class="innerBtn" id="darkMode">
+        <button class="menu-icon" (click)="toggleDarkModeOn()">
+          <i class="bi bi-moon-fill" id="moon"></i>
+        </button>
+      </div>
     </div>
   </div>
 </div>

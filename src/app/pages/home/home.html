@@ -4,12 +4,12 @@
     <div
       cdkDropList
       #notStartedList="cdkDropList"
-      [cdkDropListData]="notStarted"
+      [cdkDropListData]="notStarted()"
       [cdkDropListConnectedTo]="[inProgressList, doneList]"
       class="list"
       (cdkDropListDropped)="drop($event, 'Not started')"
     >
-      @for (task of notStarted; track task.id) {
+      @for (task of notStarted(); track task.id) {
         <div class="box" cdkDrag>{{ task.title }}</div>
       }
     </div>
@@ -19,12 +19,12 @@
     <div
       cdkDropList
       #inProgressList="cdkDropList"
-      [cdkDropListData]="inProgress"
+      [cdkDropListData]="inProgress()"
       [cdkDropListConnectedTo]="[notStartedList, doneList]"
       class="list"
       (cdkDropListDropped)="drop($event, 'In progress')"
     >
-      @for (task of inProgress; track task.id) {
+      @for (task of inProgress(); track task.id) {
         <div class="box" cdkDrag>{{ task.title }}</div>
       }
     </div>
@@ -34,12 +34,12 @@
     <div
       cdkDropList
       #doneList="cdkDropList"
-      [cdkDropListData]="done"
+      [cdkDropListData]="done()"
       [cdkDropListConnectedTo]="[notStartedList, inProgressList]"
       class="list"
       (cdkDropListDropped)="drop($event, 'Done')"
     >
-      @for (task of done; track task.id) {
+      @for (task of done(); track task.id) {
         <div class="box" cdkDrag>{{ task.title }}</div>
       }
     </div>

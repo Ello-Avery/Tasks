@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import {
   CdkDrag,
   CdkDragDrop,
@@ -17,19 +17,11 @@ import { TaskService, Task, TaskStatus } from '../../service/task-service';
 export class Home {
   db = inject(TaskService);
 
-  notStarted: Task[] = [];
-  inProgress: Task[] = [];
-  done: Task[] = [];
+  notStarted = computed(() => this.db.filterTasks().filter((t) => t.status === 'Not started'));
 
-  ngOnInit() {
-    this.refreshLists();
-  }
+  inProgress = computed(() => this.db.filterTasks().filter((t) => t.status === 'In progress'));
 
-  refreshLists() {
-    this.notStarted = this.db.getTasks.filter((t) => t.status === 'Not started');
-    this.inProgress = this.db.getTasks.filter((t) => t.status === 'In progress');
-    this.done = this.db.getTasks.filter((t) => t.status === 'Done');
-  }
+  done = computed(() => this.db.filterTasks().filter((t) => t.status === 'Done'));
 
   drop(event: CdkDragDrop<Task[]>, newStatus: TaskStatus) {
     const task = event.previousContainer.data[event.previousIndex];
