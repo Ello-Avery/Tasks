@@ -1,0 +1,65 @@
+.toolbar {
+  padding-inline: 10px;
+  display: flex;
+  align-items: center;
+  background: #969eff;
+  height: 50px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.menu-icon {
+  background: transparent;
+  border: transparent;
+  font-size: 1.5rem;
+}
+
+.title .menu-icon {
+  color: var(--text-color);
+}
+
+.searchbox .menu-icon {
+  color: #363636;
+}
+
+.menu-icon:hover {
+  cursor: pointer;
+}
+
+.header-text {
+  font-size: larger;
+  font-weight: 500;
+}
+
+.searchbox {
+  flex: 1;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 16px;
+}
+
+.search {
+  height: 24px;
+  background: var(--text-bg-color);
+  border: transparent;
+  border-radius: 4px;
+}
+
+.search:focus {
+  border: var(--color-secondary) 1px solid;
+  outline: none;
+}
+
+.toggleTheme {
+  background: var(--color-secondary);
+  border-radius: 100vh;
+  padding: 5px;
+}
+
+input {
+  padding-inline: 8px;
+}
