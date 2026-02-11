@@ -6,6 +6,7 @@ export interface Task {
   id: string;
   title: string;
   status: TaskStatus;
+  createdAt: number;
 }
 
 export interface TaskCollection {
@@ -21,57 +22,69 @@ export class TaskService {
       id: '1',
       title: 'Complete Angular bootcamp module 5',
       status: 'In progress',
+      createdAt: Date.now() - 1000000,
     },
     '2': {
       id: '2',
       title: 'Build Pokémon search feature',
       status: 'Done',
+      createdAt: Date.now() - 1000000,
     },
     '3': {
       id: '3',
       title: 'Review TypeScript fundamentals',
       status: 'Done',
+      createdAt: Date.now() - 1000000,
     },
     '4': {
       id: '4',
       title: 'Set up dark mode toggle',
       status: 'In progress',
+      createdAt: Date.now() - 1000000,
     },
     '5': {
       id: '5',
       title: 'Implement task filtering by status',
       status: 'Not started',
+      createdAt: Date.now() - 1000000,
     },
     '6': {
       id: '6',
       title: 'Add responsive design for mobile',
       status: 'In progress',
+      createdAt: Date.now() - 1000000,
     },
     '7': {
       id: '7',
       title: 'Create custom form validators',
       status: 'Not started',
+      createdAt: Date.now() - 1000000,
     },
     '8': {
       id: '8',
       title: 'Deploy app to production',
       status: 'Not started',
+      createdAt: Date.now() - 1000000,
     },
     '9': {
       id: '9',
       title: 'Fix search input styling',
       status: 'Done',
+      createdAt: Date.now() - 1000000,
     },
     '10': {
       id: '10',
       title: 'Write unit tests for components',
       status: 'Not started',
+      createdAt: Date.now() - 1000000,
     },
   });
 
   tasks = this._tasks.asReadonly();
 
   tasksArray = computed(() => Object.values(this._tasks()));
+
+  openForm = signal(false);
 
   searchTerm = signal<string>('');
 
@@ -83,6 +96,22 @@ export class TaskService {
 
     return tasks.filter((tasks) => tasks.title.toLowerCase().includes(search));
   });
+
+  addOrUpdateTasks(update: Task, isUpdate = false): boolean {
+    if (this._tasks()[update.id] && !isUpdate) {
+      return false;
+    }
+
+    this._tasks.update((currentTasks) => ({
+      ...currentTasks,
+      [update.id]: {
+        ...update,
+        createdAt: isUpdate ? currentTasks[update.id]?.createdAt || Date.now() : Date.now(),
+      },
+    }));
+
+    return true;
+  }
 
   updateTaskStatus(taskId: string, newStatus: TaskStatus) {
     this._tasks.update((tasks) => {

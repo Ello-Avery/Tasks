@@ -1,0 +1,7 @@
+<button [ngClass]="[btnDetails().btnType, btnDetails().centered ? 'centered' : '']">
+  @if (btnDetails().showIcon !== false) {
+    <i class="bi bi-plus"></i>
+  }
+
+  {{ btnDetails().title }}
+</button>

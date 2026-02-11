@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { TaskService } from '../../service/task-service';
 
 @Component({
@@ -7,8 +7,12 @@ import { TaskService } from '../../service/task-service';
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {
+export class Header implements OnInit {
   db = inject(TaskService);
+
+  ngOnInit() {
+    this.toggleDarkModeOff();
+  }
 
   onSearch(event: Event) {
     const input = event.target as HTMLInputElement;

@@ -9,6 +9,7 @@
 .title {
   display: flex;
   align-items: center;
+  gap: 4px;
 }
 
 .menu-icon {
@@ -43,7 +44,8 @@
 }
 
 .search {
-  height: 24px;
+  height: 32px;
+  width: 300px;
   background: var(--text-bg-color);
   border: transparent;
   border-radius: 4px;
@@ -55,9 +57,12 @@
 }
 
 .toggleTheme {
+  min-width: 100px;
   background: var(--color-secondary);
   border-radius: 100vh;
   display: flex;
+  justify-content: center;
+  gap: 4px;
 }
 
 .toggleTheme > * {
@@ -69,7 +74,11 @@
 }
 
 .innerBtn {
+  flex: 1;
   padding: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .toggleTheme .active {

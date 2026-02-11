@@ -1,1 +1,11 @@
-<p>task-card works!</p>
+<div class="wrapper">
+  <div class="details">
+    <div (click)="editTask(task()?.id)" class="card-heading">
+      <h3>{{ task()?.title }}</h3>
+      <button class="editBtn"><i class="bi bi-arrow-right-circle-fill"></i></button>
+    </div>
+    <p class="status">Bucket</p>
+    <p class="status">Due Date</p>
+    <p class="status">{{ task()?.status }}</p>
+  </div>
+</div>

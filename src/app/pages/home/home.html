@@ -1,6 +1,13 @@
 <div class="wrapper">
   <div class="container">
     <h2>Not started</h2>
+    <div class="addTask">
+      <app-button
+        (click)="addNewTask()"
+        [btnDetails]="{ btnType: 'secondaryBtn', title: 'Add Task' }"
+      />
+    </div>
+
     <div
       cdkDropList
       #notStartedList="cdkDropList"
@@ -10,12 +17,18 @@
       (cdkDropListDropped)="drop($event, 'Not started')"
     >
       @for (task of notStarted(); track task.id) {
-        <div class="box" cdkDrag>{{ task.title }}</div>
+        <div class="box" cdkDrag><app-task-card [task]="task" /></div>
       }
     </div>
   </div>
   <div class="container">
     <h2>In progress</h2>
+    <div class="addTask">
+      <app-button
+        (click)="addNewTask()"
+        [btnDetails]="{ btnType: 'secondaryBtn', title: 'Add Task' }"
+      />
+    </div>
     <div
       cdkDropList
       #inProgressList="cdkDropList"
@@ -25,12 +38,18 @@
       (cdkDropListDropped)="drop($event, 'In progress')"
     >
       @for (task of inProgress(); track task.id) {
-        <div class="box" cdkDrag>{{ task.title }}</div>
+        <div class="box" cdkDrag><app-task-card [task]="task" /></div>
       }
     </div>
   </div>
   <div class="container">
     <h2>Done</h2>
+    <div class="addTask">
+      <app-button
+        (click)="addNewTask()"
+        [btnDetails]="{ btnType: 'secondaryBtn', title: 'Add Task' }"
+      />
+    </div>
     <div
       cdkDropList
       #doneList="cdkDropList"
@@ -40,8 +59,12 @@
       (cdkDropListDropped)="drop($event, 'Done')"
     >
       @for (task of done(); track task.id) {
-        <div class="box" cdkDrag>{{ task.title }}</div>
+        <div class="box" cdkDrag><app-task-card [task]="task" /></div>
       }
     </div>
   </div>
+
+  @if (db.openForm()) {
+    <app-task-form />
+  }
 </div>

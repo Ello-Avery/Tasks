@@ -1,5 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+// =========================================
+// CSS Reset
+// =========================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+// =========================================
+// Design Tokens
+// =========================================
+
 :root {
   --color-primary: #969eff;
   --color-secondary: #ffb595;
@@ -7,6 +49,10 @@
   --text-color: #363636;
   --bg-color: #f0f0f0;
   --text-bg-color: #f0f0f0;
+  --btn-hover: #f0f0f0;
+  --heading-color-hover: var(--color-secondary);
+  --btn-text-primary: #363636;
+  --btn-text-secondary: #363636;
 }
 
 .dark-theme {
@@ -18,11 +64,38 @@
   --surface-color: #242424;
   --border-color: #404040;
   --text-bg-color: #f0f0f0;
+  --btn-hover: #333;
+  --heading-color-hover: #9ee678;
+  --btn-text-primary: #363636;
+  --btn-text-secondary: #c8ffaa;
 }
+
+// =========================================
+// Base Styles
+// =========================================
 
 body {
   font-family: 'Inter', sans-serif;
-  margin: 0;
+  line-height: 1.5;
   background: var(--bg-color);
   color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+// =========================================
+// Transitions
+// =========================================
+
+:root {
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+* {
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
 }

@@ -1,0 +1,25 @@
+<div class="formOverlay">
+  <div class="form">
+    <h2 class="formTitle">Task Details</h2>
+    <form [formGroup]="form">
+      <label for="title">
+        <p>Title</p>
+        <input id="title" type="text" formControlName="title" />
+      </label>
+
+      <label for="taskStatus">
+        <p>Status</p>
+        <select id="taskStatus" formControlName="taskStatus">
+          <option value="Not started">Not started</option>
+          <option value="In progress">In progress</option>
+          <option value="Done">Done</option>
+        </select>
+      </label>
+    </form>
+
+    <div class="buttonGroup">
+      <app-button (click)="addOrUpdateTask()" [btnDetails]="saveButtonConfig" />
+      <app-button (click)="closeForm()" [btnDetails]="closeButtonConfig" />
+    </div>
+  </div>
+</div>
