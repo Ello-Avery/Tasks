@@ -49,6 +49,8 @@ label p {
 }
 
 input[type='text'],
+input[type='date'],
+textarea,
 select {
   width: 100%;
   padding: 12px 16px;
@@ -60,7 +62,14 @@ select {
   background-color: white;
 }
 
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
 input[type='text']:focus,
+input[type='date']:focus,
+textarea:focus,
 select:focus {
   outline: none;
   border-color: var(--color-secondary);
@@ -68,6 +77,8 @@ select:focus {
 }
 
 input[type='text']:hover,
+input[type='date']:hover,
+textarea:hover,
 select:hover {
   border-color: var(--color-secondary);
 }
@@ -80,10 +91,22 @@ select {
   background-position: right 16px center;
   padding-right: 40px;
   border-radius: 4px;
+  box-sizing: border-box;
 }
 
 select option:hover {
   background-color: var(--color-secondary);
+}
+
+.groupingFields {
+  display: flex;
+  justify-content: start;
+  align-content: bottom;
+  gap: 24px;
+}
+
+.groupingFields > * {
+  flex: 1;
 }
 
 .buttonGroup {

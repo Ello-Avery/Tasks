@@ -1,66 +1,83 @@
 <div class="wrapper">
-  <div class="container">
-    <h2>Not started</h2>
-    <div class="addTask">
-      <app-button
-        (click)="addNewTask()"
-        [btnDetails]="{ btnType: 'secondaryBtn', title: 'Add Task' }"
-      />
-    </div>
+  <div class="drop-zones">
+    <div class="container">
+      <h2>Not started</h2>
+      <div class="addTask">
+        <app-button
+          (click)="addNewTask()"
+          [btnDetails]="{
+            btnType: 'secondaryBtn',
+            title: 'Add Task',
+            showIcon: true,
+            iconString: 'bi bi-plus',
+          }"
+        />
+      </div>
 
-    <div
-      cdkDropList
-      #notStartedList="cdkDropList"
-      [cdkDropListData]="notStarted()"
-      [cdkDropListConnectedTo]="[inProgressList, doneList]"
-      class="list"
-      (cdkDropListDropped)="drop($event, 'Not started')"
-    >
-      @for (task of notStarted(); track task.id) {
-        <div class="box" cdkDrag><app-task-card [task]="task" /></div>
-      }
+      <div
+        cdkDropList
+        #notStartedList="cdkDropList"
+        [cdkDropListData]="notStarted()"
+        [cdkDropListConnectedTo]="[inProgressList, doneList]"
+        class="list"
+        (cdkDropListDropped)="drop($event, 'Not started')"
+      >
+        @for (task of notStarted(); track task.id) {
+          <div class="box" cdkDrag><app-task-card [task]="task" /></div>
+        }
+      </div>
     </div>
-  </div>
-  <div class="container">
-    <h2>In progress</h2>
-    <div class="addTask">
-      <app-button
-        (click)="addNewTask()"
-        [btnDetails]="{ btnType: 'secondaryBtn', title: 'Add Task' }"
-      />
+    <div class="container">
+      <h2>In progress</h2>
+      <div class="addTask">
+        <app-button
+          (click)="addNewTask()"
+          [btnDetails]="{
+            btnType: 'secondaryBtn',
+            title: 'Add Task',
+            showIcon: true,
+            iconString: 'bi bi-plus',
+          }"
+        />
+      </div>
+      <div
+        cdkDropList
+        #inProgressList="cdkDropList"
+        [cdkDropListData]="inProgress()"
+        [cdkDropListConnectedTo]="[notStartedList, doneList]"
+        class="list"
+        (cdkDropListDropped)="drop($event, 'In progress')"
+      >
+        @for (task of inProgress(); track task.id) {
+          <div class="box" cdkDrag><app-task-card [task]="task" /></div>
+        }
+      </div>
     </div>
-    <div
-      cdkDropList
-      #inProgressList="cdkDropList"
-      [cdkDropListData]="inProgress()"
-      [cdkDropListConnectedTo]="[notStartedList, doneList]"
-      class="list"
-      (cdkDropListDropped)="drop($event, 'In progress')"
-    >
-      @for (task of inProgress(); track task.id) {
-        <div class="box" cdkDrag><app-task-card [task]="task" /></div>
-      }
-    </div>
-  </div>
-  <div class="container">
-    <h2>Done</h2>
-    <div class="addTask">
-      <app-button
-        (click)="addNewTask()"
-        [btnDetails]="{ btnType: 'secondaryBtn', title: 'Add Task' }"
-      />
-    </div>
-    <div
-      cdkDropList
-      #doneList="cdkDropList"
-      [cdkDropListData]="done()"
-      [cdkDropListConnectedTo]="[notStartedList, inProgressList]"
-      class="list"
-      (cdkDropListDropped)="drop($event, 'Done')"
-    >
-      @for (task of done(); track task.id) {
-        <div class="box" cdkDrag><app-task-card [task]="task" /></div>
-      }
+    <div class="container">
+      <h2>Done</h2>
+      <div class="addTask">
+        <app-button
+          (click)="addNewTask()"
+          [btnDetails]="{
+            btnType: 'secondaryBtn',
+            title: 'Add Task',
+            showIcon: true,
+            iconString: 'bi bi-plus',
+          }"
+        />
+      </div>
+      <div
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="done()"
+        [cdkDropListConnectedTo]="[notStartedList, inProgressList]"
+        class="list"
+        (cdkDropListDropped)="drop($event, 'Done')"
+      >
+        @for (task of done(); track task.id) {
+          <div class="box" cdkDrag><app-task-card [task]="task" /></div>
+        }
+      </div>
     </div>
   </div>
 

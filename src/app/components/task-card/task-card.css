@@ -4,6 +4,8 @@
   align-items: flex-start;
   gap: 8px;
   margin: 4px;
+  /* min-height: 90px;
+  max-height: 90px; */
 }
 
 .details {
@@ -57,4 +59,9 @@ h3:hover {
 .editBtn:active {
   color: color-mix(in srgb, var(--color-secondary) 80%, black);
   transform: scale(0.95);
+}
+
+.overdue {
+  color: red;
+  font-weight: bold;
 }

@@ -1,0 +1,29 @@
+.wrapper {
+  margin-top: 4px;
+  padding-inline: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchbox {
+  flex: 1;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 16px;
+}
+
+.search {
+  height: 32px;
+  width: 300px;
+  background: var(--text-bg-color);
+  border: transparent;
+  border-bottom: var(--color-secondary) 2px solid;
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+.search:focus {
+  outline: none;
+}

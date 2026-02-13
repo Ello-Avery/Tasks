@@ -4,8 +4,11 @@
       <h3>{{ task()?.title }}</h3>
       <button class="editBtn"><i class="bi bi-arrow-right-circle-fill"></i></button>
     </div>
-    <p class="status">Bucket</p>
-    <p class="status">Due Date</p>
-    <p class="status">{{ task()?.status }}</p>
+    <p class="status">{{ truncatedDescription() }}</p>
+    @if (task()?.dueDate) {
+      <p class="status">
+        Due: <span [class.overdue]="isOverdue()">{{ formattedDueDate() }}</span>
+      </p>
+    }
   </div>
 </div>

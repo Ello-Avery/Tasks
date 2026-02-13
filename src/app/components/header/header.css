@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  width: 20vw;
 }
 
 .menu-icon {
@@ -38,14 +39,14 @@
 .searchbox {
   flex: 1;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   gap: 16px;
 }
 
 .search {
   height: 32px;
-  width: 300px;
+  width: 30vw;
   background: var(--text-bg-color);
   border: transparent;
   border-radius: 4px;
@@ -54,6 +55,14 @@
 .search:focus {
   border: var(--color-secondary) 1px solid;
   outline: none;
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 16px;
+  width: 20vw;
 }
 
 .toggleTheme {

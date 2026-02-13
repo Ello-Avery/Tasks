@@ -14,6 +14,11 @@
       placeholder="Search by title"
       (input)="onSearch($event)"
     />
+  </div>
+  <div class="tools">
+    <div class="export">
+      <app-button (click)="exportCSV()" [btnDetails]="exportButtonConfig" />
+    </div>
 
     <div class="toggleTheme">
       <div class="innerBtn active" id="lightMode">

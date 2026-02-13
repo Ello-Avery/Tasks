@@ -2,7 +2,7 @@ import { Component, inject, input } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { TaskService } from '../../../service/task-service';
 
-export type BtnType = 'primaryBtn' | 'secondaryBtn';
+export type BtnType = 'primaryBtn' | 'secondaryBtn' | 'headerBtn';
 
 export interface iButton {
   btnType: BtnType;

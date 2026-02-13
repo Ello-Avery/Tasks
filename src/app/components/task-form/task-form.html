@@ -7,14 +7,26 @@
         <input id="title" type="text" formControlName="title" />
       </label>
 
-      <label for="taskStatus">
-        <p>Status</p>
-        <select id="taskStatus" formControlName="taskStatus">
-          <option value="Not started">Not started</option>
-          <option value="In progress">In progress</option>
-          <option value="Done">Done</option>
-        </select>
+      <label for="description">
+        <p>Description</p>
+        <textarea id="description" formControlName="description"></textarea>
       </label>
+
+      <div class="groupingFields">
+        <label for="taskStatus">
+          <p>Status</p>
+          <select id="taskStatus" formControlName="taskStatus">
+            <option value="Not started">Not started</option>
+            <option value="In progress">In progress</option>
+            <option value="Done">Done</option>
+          </select>
+        </label>
+
+        <label for="dueDate">
+          <p>Due Date</p>
+          <input id="dueDate" type="date" formControlName="dueDate" />
+        </label>
+      </div>
     </form>
 
     <div class="buttonGroup">

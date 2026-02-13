@@ -29,6 +29,8 @@ export class TaskForm implements OnInit {
         this.form.patchValue({
           title: task.title,
           taskStatus: task.status,
+          description: task.description,
+          dueDate: task.dueDate,
         });
       }
     }
@@ -39,6 +41,8 @@ export class TaskForm implements OnInit {
   form = new FormGroup({
     title: new FormControl('', Validators.required),
     taskStatus: new FormControl<TaskStatus>('Not started'),
+    description: new FormControl(),
+    dueDate: new FormControl(),
   });
 
   saveButtonConfig: iButton = {
@@ -66,6 +70,8 @@ export class TaskForm implements OnInit {
       id: this.taskId || crypto.randomUUID(),
       title: formValue.title!,
       status: formValue.taskStatus || 'Not started',
+      description: formValue.description,
+      dueDate: formValue.dueDate,
       createdAt:
         this.isEditMode && this.taskId ? this.db.tasks()[this.taskId].createdAt : Date.now(),
     };

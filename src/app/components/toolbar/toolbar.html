@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div class="searchbox">
+    <input
+      class="search"
+      type="text"
+      class="search"
+      placeholder="Search by title"
+      (input)="onSearch($event)"
+    />
+  </div>
+
+  <div class="tools">
+    <div class="export">
+      <app-button [btnDetails]="exportButtonConfig" />
+    </div>
+  </div>
+</div>

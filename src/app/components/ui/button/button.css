@@ -8,7 +8,7 @@ button {
   align-items: center;
   width: 100%;
   cursor: pointer;
-  min-height: 44px;
+  min-height: 32px;
   min-width: 120px;
 }
 
@@ -25,12 +25,20 @@ i {
   color: var(--btn-text-primary);
 }
 
+.headerBtn {
+  padding: 4px;
+  height: 32px;
+  background: var(--color-secondary);
+  color: var(--btn-text-primary);
+}
+
 .secondaryBtn {
   background: transparent;
   color: var(--btn-text-secondary);
 }
 
-.primaryBtn:hover {
+.primaryBtn:hover,
+.headerBtn:hover {
   filter: brightness(0.85);
   background: var(--color-secondary);
 }
@@ -41,6 +49,7 @@ i {
 }
 
 .primaryBtn:active,
-.secondaryBtn:active {
+.secondaryBtn:active,
+.headerBtn:active {
   scale: 0.95;
 }
