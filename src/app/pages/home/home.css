@@ -1,3 +1,7 @@
+.wrapper {
+  display: flex;
+}
+
 .drop-zones {
   display: flex;
   margin-bottom: 24px;

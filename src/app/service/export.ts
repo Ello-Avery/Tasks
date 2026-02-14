@@ -10,7 +10,7 @@ export class Export {
   generateCSV() {
     const csvContent = [['ID', 'Title', 'Status', 'Description', 'Due Date', 'Created At']];
 
-    this.taskService.tasksArray().forEach((task) => {
+    this.taskService.filterTasks().forEach((task) => {
       csvContent.push([
         task.id,
         task.title,

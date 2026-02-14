@@ -11,16 +11,18 @@ import { TaskCard } from '../../components/task-card/task-card';
 import { TaskForm } from '../../components/task-form/task-form';
 import { Button } from '../../components/ui/button/button';
 import { Router } from '@angular/router';
-import { Toolbar } from '../../components/toolbar/toolbar';
+import { NotificationService } from '../../service/notifications';
+import { Sidebar } from '../../components/sidebar/sidebar';
 
 @Component({
   selector: 'app-home',
-  imports: [CdkDropList, CdkDrag, TaskCard, TaskForm, Button, Toolbar],
+  imports: [CdkDropList, CdkDrag, TaskCard, TaskForm, Button, Sidebar],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home {
   db = inject(TaskService);
+  notificationService = inject(NotificationService);
   router = inject(Router);
 
   notStarted = computed(() =>

@@ -1,0 +1,91 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  padding-top: 8px;
+  box-shadow:
+    rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  background-color: whitesmoke;
+  height: calc(100vh - 50px);
+}
+
+.menu-item {
+  margin-bottom: 12px;
+  border-radius: 100vh;
+  cursor: pointer;
+}
+
+.menu-item.active {
+  background: var(--color-secondary);
+  color: var(--btn-text-primary);
+}
+
+.menu-item.active i {
+  color: var(--btn-text-primary);
+}
+
+i {
+  background: transparent;
+  color: var(--btn-text-secondary);
+  font-size: 32px;
+  padding: 8px;
+}
+
+.menu-item:hover {
+  background: var(--color-secondary);
+  color: var(--btn-text-primary);
+}
+
+.primaryBtn:active,
+.secondaryBtn:active,
+.headerBtn:active {
+  scale: 0.95;
+}
+
+.tooltip {
+  position: relative;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 4px;
+  padding: 6px 12px;
+  background-color: #333;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+/* Arrow pointing left (towards the menu item) */
+.tooltip::before {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 2px;
+
+  border: 6px solid transparent;
+  border-right-color: #333;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover::after,
+.tooltip:hover::before {
+  opacity: 1;
+}

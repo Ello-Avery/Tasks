@@ -1,0 +1,13 @@
+<div class="wrapper">
+  @for (item of menuItems; track item.id) {
+    <div
+      class="menu-item tooltip"
+      [routerLink]="item.path"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: item.exact || false }"
+      [attr.data-tooltip]="item.name"
+    >
+      <i class="{{ item.icon }}"></i>
+    </div>
+  }
+</div>

@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TaskService, Task, TaskStatus } from '../../service/task-service';
 import { Button, iButton } from '../ui/button/button';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationService } from '../../service/notifications';
 
 @Component({
   selector: 'app-task-form',
@@ -13,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TaskForm implements OnInit {
   db = inject(TaskService);
+  notificationService = inject(NotificationService);
   route = inject(ActivatedRoute);
   router = inject(Router);
   taskId: string | null = null;
@@ -81,6 +83,7 @@ export class TaskForm implements OnInit {
     if (success) {
       this.form.reset({ taskStatus: 'Not started' });
       this.closeForm();
+      this.notificationService.show('Task created successfully!', 'success');
     }
   }
 
