@@ -2,7 +2,7 @@
 
 A modern, feature-rich task management application built with Angular 21, featuring drag-and-drop functionality, real-time analytics, and a clean, responsive UI.
 
-![Task Board](image-1.png)
+![Task Board](./public/image-1.png)
 
 ## Features
 
@@ -13,7 +13,7 @@ A modern, feature-rich task management application built with Angular 21, featur
 - **Task Search**: Filter tasks by title with real-time search
 - **Task Details**: Comprehensive task information including title, description, due date, and status
 
-![Task Form](image-2.png)
+![Task Form](./public/image-2.png)
 
 ### 📊 Analytics Dashboard
 
@@ -22,7 +22,7 @@ A modern, feature-rich task management application built with Angular 21, featur
 - **Task Table**: Sortable table view of all tasks with due date sorting
 - **Status Overview**: Quick glance at project progress
 
-![Analytics Dashboard](image-3.png)
+![Analytics Dashboard](./public/image-3.png)
 
 ### 🎨 User Experience
 
