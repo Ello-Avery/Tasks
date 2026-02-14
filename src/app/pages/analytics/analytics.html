@@ -1,1 +1,60 @@
-<p>analytics works!</p>
+<div class="wrapper">
+  <div class="graph-items">
+    <div class="graph">
+      <ngx-charts-bar-horizontal
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="chartData()"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        [animations]="animations"
+      >
+      </ngx-charts-bar-horizontal>
+    </div>
+    <div class="graph">
+      <ngx-charts-pie-chart
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="chartData()"
+        [gradient]="gradient"
+        [legend]="showLegend"
+        [animations]="animations"
+        [labels]="showLabels"
+      >
+      </ngx-charts-pie-chart>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table class="tasks-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Due Date</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (task of sortedTasks(); track task.id) {
+          <tr [attr.data-status]="task.status">
+            <td class="task-title">{{ task.title }}</td>
+            <td>
+              <span class="status-badge" [attr.data-status]="task.status">
+                {{ task.status }}
+              </span>
+            </td>
+            <td class="task-date">{{ task.dueDate | date: 'MMM d, y' }}</td>
+            <td class="task-description">{{ task.description }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
