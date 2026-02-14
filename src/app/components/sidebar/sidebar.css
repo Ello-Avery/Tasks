@@ -6,7 +6,7 @@
   box-shadow:
     rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-  background-color: whitesmoke;
+  background-color: var(--bg-sidebar);
   height: calc(100vh - 50px);
 }
 
@@ -27,13 +27,16 @@
 
 i {
   background: transparent;
-  color: var(--btn-text-secondary);
+  color: var(--text-color);
   font-size: 32px;
   padding: 8px;
 }
 
 .menu-item:hover {
   background: var(--color-secondary);
+}
+
+i:hover {
   color: var(--btn-text-primary);
 }
 
